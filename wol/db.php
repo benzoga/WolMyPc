@@ -42,8 +42,8 @@ CREATE TABLE user (
   password varchar(128) NOT NULL,
   level int NOT NULL
 );
-
-INSERT INTO user VALUES (1, 'admin', '1879303f48fc69acc84e6b24608b2c7b932c18f90546186507b4513b44ce4ad2bfb360c223142239c6828201f4d05a3a6357429d2bd9cd44ed06b87b03e4a96a', 3);
+// user=>id,nomUser,hash512withSalt,levelAuthorization
+INSERT INTO user VALUES (1, 'admin', '1879303f48fc6986507b4513b44ce4ad2bfb360c22142239c682801f4d05a3a637429d2bd9cd4ed06b874a96a', 3);
 		";
 		$this->multi_query($query);
 	}
