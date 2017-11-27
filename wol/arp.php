@@ -1,6 +1,6 @@
     <?php
 
-$ip="10.236.22.1";
+$ip="192.168.2.1";
 $res=getMacAddress($ip);
 echo "$res";
 
