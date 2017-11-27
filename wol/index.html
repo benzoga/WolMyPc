@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>WolEsi - Admin Page</title>
+		<meta charset="UTF-8"/>
+		<script>
+		function detectIE(){
+			//alert(navigator.userAgent);
+		var regexp = /Trident/;
+			if (regexp.test(navigator.userAgent)) {
+				alert("vous avez IE11");
+				document.location.href="https://www.mozilla.org/fr/firefox/new/"
+			} 
+		}
+		detectIE();
+ </script>
+ 
+		<link rel="stylesheet" href="css/yeti.bootstrap.min.css"/>
+		<link rel="stylesheet" href="css/custom.css"/>
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/bootbox.min.js"></script>
+		<script src="js/admin.js"></script>
+	</head>
+	<body>
+		<div id="modal" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+			
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Editer Machine</h4>
+				</div>
+			<div class="modal-body">
+				<div class="form-group">
+					<label for="name">Nom d'hôte:</label>
+					<input class="form-control" id="name" placeholder="Server"/>
+				</div>
+				<div class="form-group">
+					<label for="ip">adresse IP:</label>
+					<input id="ip" placeholder="192.168.0.55" class="form-control"/>
+				</div>
+				<div class="form-group">
+					<label for="mac">adresse MAC:</label>
+					<input id="mac" class="form-control" placeholder="00:00:00:00:00:00"/>
+				</div>
+				<div class="form-group">
+					<label for="broadcast">adresse de Broadcast :</label>
+					<input id="broadcast" class="form-control" placeholder="10.236.23.255"/>
+				</div>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-danger" data-dismiss="modal">Annuler</button>
+				<button type="button" class="btn btn-success" data-dismiss="modal" onclick="save()">Sauvegarder</button>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div id="login-modal" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+			
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Login</h4>
+				</div>
+			<div class="modal-body">
+				<div class="form-group">
+					<label for="username">Username:</label>
+					<input class="form-control" id="username" placeholder=""/>
+				</div>
+				<div class="form-group">
+					<label for="password">Password:</label>
+					<input id="password" placeholder="********" type="password" class="form-control"/>
+				</div>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-success" data-dismiss="modal" onclick="login()"><span class="glyphicon glyphicon-log-in"></span> Login</button>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<!-- Ajout BGN -->
+		<div id="wakemanual-modal" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Réveil manuel</h4>
+				</div>
+			<div class="modal-body">
+				<div class="form-group">
+					<label for="ip">@ip de la machine</label>
+					 <input class="form-control" id="ip" placeholder=""/> 			  
+				</div>
+				<div class="alert alert-block alert-danger" style="display:none">
+				<h4>Erreur !</h4>
+			    </div>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-success" data-dismiss="modal" onclick="wakeManual()"><span class="glyphicon glyphicon-time"></span> Réveil manuel</button>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<!-- fin BGN -->
+		<div class="container">
+			<div class="pull-left">
+				<div id="username-display">
+				</div>
+				<div class="btn-group pull-left">
+					<button class="btn btn-success require-level-2" title="compte" type="button" data-toggle="tooltip" data-placement="left" onclick=""><span class="glyphicon glyphicon-user"></span></button>
+				</div>
+			</div>
+			<div class="btn-group pull-right">
+				<button class="btn btn-default"  title="Se déconnecter" type="button" data-toggle="tooltip" data-placement="right" onclick="logout()"><span class="glyphicon glyphicon-log-out"></span></button>
+				<button class="btn btn-default" title="Rafraîchir les infos" type="button" data-toggle="tooltip" data-placement="right" onclick="pingAll()"><span class="glyphicon glyphicon-refresh"></span></button>
+				<button class="btn btn-success require-level-2" title="Ajouter une machine" type="button" data-toggle="tooltip" data-placement="right" onclick="addServer()"><span class="glyphicon glyphicon-plus"></span></button>
+				<button class="btn btn-success require-level-2" title="Mode manuel" type="button" data-toggle="tooltip" data-placement="right" onclick=" showWakeManual()"><span class="glyphicon glyphicon-hand-up"></span></button>
+				<button class="btn btn-success require-level-2" title="Infos" type="button" data-toggle="tooltip" data-placement="right" onclick=" infos()"><span class="glyphicon glyphicon-info-sign"></span></button>
+			</div>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Server</th>
+						<th>IP</th>
+						<th>Status</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody id="serverlist">
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Réveil des pc à distance</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+</head>
+<body>
+
+<form action="/cgi-bin/wol.pl" method="post" style="float:left">
+            <table>
+		<br/>
+                <tr><td>@Mac:</td><td><input size="30" maxlength="30" name="HWaddress" value="6C:62:6D:54:3F:10"></td></tr>
+                <tr><td><input size="30" type="hidden" maxlength="30" name="IPaddress" value="10.236.23.255"></td></tr>
+               <td><input size="30" type="hidden" maxlength="30" name="Port" value="7"></td></tr>
+	       </br>	
+                <tr><td></td><td><input type="submit" value="Envoyer"></td></tr>
+            </table>
+</form>
+
+</body>
+</html>

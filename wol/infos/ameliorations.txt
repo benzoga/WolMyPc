@@ -1,0 +1,46 @@
+31.10.2017
+*********************************************
+- Traduction menus et items en francais(index.html,admin.js)
+- Modification de la fonction "http_reponse_code" pour pour pouvoir etre executee sur version de PHP anterieures Ã  la 5.4
+- Ajout utilisateur "exploit" avc mdp hashe via "hash2.php"
+
+02.11.2017
+*********************************************
+- Ajout d'une infobulle sur chaque bouton du menu pour avoir description de l'action
+"Ajouter une machine"
+"Rafraichir les infos"
+"Se deconnecter"
+
+07.11.2017
+*********************************************
+- bind bouton 'rafraichir infos" avec 
+- ajout fonction wakeAll(), reveil de toutes les machines en un click
+
+15.11.2017
+*********************************************
+- Modification des droits dans le fichier admin.js
+Dorénavant les boutons "ajouter","editer" 
+et "supprimer" une machine sont accessibles uniquement aux utilisateurs 
+"level3" soit "admin".
+- Ajout d'un icône pour l'utilisateur "connecté".
+- Ajout d'un icône "info"
+
+###############
+TODO
+
+- chiffrement mot de passe BDD 
+- formulaire ajout utilisateur/role (sha512)
+- creer des groupes de machines (ex: formation, stech, disi )
+- Vue en fonction du role de l'utilisateur (admin vs lambda)
+- Activer le "refresh" des infos toutes les ...
+- infos bulles
+- wol par groupe
+- journal des actions effectuees
+- plan B reveil possible par script perl cgi
+
+###############
+ERREURS
+
+- ajout serveur par compte level !=3 genere une erreur 200 
+-> bloquer le bouton 'ajouter une machine' via le CSS en fonction du level de
+l'utilisateur
